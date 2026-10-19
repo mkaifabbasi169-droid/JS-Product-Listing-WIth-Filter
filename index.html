@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daraz Shoes Store</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <style>
+        body {
+            background: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #f8f9fa;
+            padding: 12px;
+        }
+
+        .navbar-brand {
+            font-size: 25px;
+            font-weight: bold;
+            color: #f85606;
+        }
+
+        .filter-select {
+            min-width: 100px;
+            cursor: pointer;
+        }
+
+        .shoe-card {
+            height: 100%;
+            border: 1px solid #d6d6d6;
+            border-radius: 6px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .shoe-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px #00000018;
+        }
+
+        .shoe-image {
+            height: 270px;
+            width: 100%;
+            object-fit: contain;
+            padding: 15px;
+            background: linear-gradient(#eeeeee, #ffffff);
+        }
+
+        .card-body {
+            padding: 16px;
+        }
+
+        .shoe-name {
+            font-size: 19px;
+            font-weight: 600;
+        }
+
+        .shoe-brand {
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        .shoe-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #f85606;
+        }
+
+        .shoe-color {
+            margin-bottom: 5px;
+        }
+
+        .shoe-size {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .product-link {
+            display: inline-block;
+            margin-top: 8px;
+            color: #f85606;
+            text-decoration: none;
+        }
+
+        #result-count {
+            color: #666;
+            font-size: 14px;
+        }
+
+        @media (max-width: 576px) {
+            .shoe-image {
+                height: 220px;
+            }
+
+            .filter-select {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body class="p-2">
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="#">Daraz</a>
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarFilters"
+                aria-controls="navbarFilters"
+                aria-expanded="false"
+                aria-label="Toggle filters"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarFilters">
+
+                <div class="d-flex flex-column flex-lg-row gap-2 ms-lg-3 mt-3 mt-lg-0">
+
+                    <select class="form-select filter-select"
+                            id="brand"
+                            aria-label="Filter by brand">
+                        <option value="">Brand</option>
+                        <option value="Nike">Nike</option>
+                        <option value="Adidas">Adidas</option>
+                        <option value="Vans">Vans</option>
+                        <option value="New Balance">New Balance</option>
+                    </select>
+
+                    <select class="form-select filter-select"
+                            id="color"
+                            aria-label="Filter by color">
+                        <option value="">Color</option>
+                        <option value="black">Black</option>
+                        <option value="red">Red</option>
+                        <option value="blue">Blue</option>
+                        <option value="green">Green</option>
+                    </select>
+
+                    <select class="form-select filter-select"
+                            id="size"
+                            aria-label="Filter by shoe size">
+                        <option value="">Size</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
+
+                    <select class="form-select filter-select"
+                            id="price"
+                            aria-label="Sort by price">
+                        <option value="">Price</option>
+                        <option value="low">Low to High</option>
+                        <option value="high">High to Low</option>
+                    </select>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mt-4 mt-lg-5">
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4>Our Shoes</h4>
+            <span id="result-count"></span>
+        </div>
+
+        <div class="row g-3" id="show-rows"></div>
+
+        <div id="no-results" class="text-center py-5 d-none">
+            <h4>No shoes found!</h4>
+            <p>Please change your filters.</p>
+            <button class="btn btn-dark" id="reset-button">
+                Reset Filters
+            </button>
+        </div>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./index.js"></script>
+
+</body>
+</html>
